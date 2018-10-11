@@ -25,6 +25,8 @@
         <!--<swagger.version>2.1.0-RELEASE</swagger.version>-->
         <swagger.version>1.8.0.RELEASE</swagger.version>
         <druid.version>1.1.10</druid.version>
+        <!--docker镜像名称-->
+        <docker.image.prefix>storage-for-friends</docker.image.prefix>
     </properties>
 
     <dependencies>
@@ -101,6 +103,23 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!--docker maven plugin-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <imageName>${docker.image.prefix}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
             </plugin>
         </plugins>
     </build>
