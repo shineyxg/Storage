@@ -35,7 +35,7 @@ spring:
       test-on-borrow: false
       # 归还连接时执行validationQuery检测连接是否有效
       test-on-return: false
-      max-evictable-idle-time-millis: 600000
+      max-evictable-idle-time-millis: 6000000
       # Destory线程中如果检测到当前连接的最后活跃时间和当前时间的差值大于minEvictableIdleTimeMillis，则关闭当前连接
       min-evictable-idle-time-millis: 300000
       # 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat日志用的filter:log4j防御sql注入的filter:wall
@@ -53,6 +53,11 @@ spring:
         login-username: shine
         login-password: shining
         reset-enable: 'false'
+  thymeleaf:
+    cache: false
+    mode: HTML
+#    prefix: classpath:/webapp/templates
+    suffix: .html
 #      filter:
 #        stat:
 #          log-slow-sql: true
@@ -73,7 +78,6 @@ swagger:
 
   ui-config:
     request-timeout: 10000
-
 
 #---
 #spring:
