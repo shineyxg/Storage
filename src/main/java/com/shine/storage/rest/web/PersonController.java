@@ -1,7 +1,9 @@
 package com.shine.storage.rest.web;
 
 import com.shine.storage.dao.entity.Person;
+import com.shine.storage.dao.entity.User;
 import com.shine.storage.dao.enums.GenderEnum;
+import com.shine.storage.dao.mapper.UserInfoMapper;
 import com.shine.storage.rest.service.PersonService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class PersonController {
 
     @Autowired
     private PersonService personService;
+
+    @Autowired
+    private UserInfoMapper userInfoMapper;
 
 
     @ApiOperation(value = "这只是个测试！")

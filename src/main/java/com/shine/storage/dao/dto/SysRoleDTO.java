@@ -1,5 +1,7 @@
 package com.shine.storage.dao.dto;
 
+import lombok.Data;
+
 import java.util.List;
 
 /**
@@ -8,6 +10,7 @@ import java.util.List;
  * @Description:
  * @date: 2018年10月14日 20:36
  */
+@Data
 public class SysRoleDTO {
 
     private String role; // 角色标识程序中判断使用,如"admin",这个是唯一的:
@@ -21,31 +24,31 @@ public class SysRoleDTO {
         return role;
     }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Boolean getAvailable() {
-        return available;
-    }
-
-    public void setAvailable(Boolean available) {
-        this.available = available;
-    }
-
-    public List<SysPermissionDTO> getPermissions() {
-        return permissions;
-    }
-
-    public void setPermissions(List<SysPermissionDTO> permissions) {
-        this.permissions = permissions;
-    }
+    // public void setRole(String role) {
+    //     this.role = role;
+    // }
+    //
+    // public String getDescription() {
+    //     return description;
+    // }
+    //
+    // public void setDescription(String description) {
+    //     this.description = description;
+    // }
+    //
+    // public Boolean getAvailable() {
+    //     return available;
+    // }
+    //
+    // public void setAvailable(Boolean available) {
+    //     this.available = available;
+    // }
+    //
+    // public List<SysPermissionDTO> getPermissions() {
+    //     return permissions;
+    // }
+    //
+    // public void setPermissions(List<SysPermissionDTO> permissions) {
+    //     this.permissions = permissions;
+    // }
 }

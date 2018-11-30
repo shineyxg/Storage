@@ -2,6 +2,7 @@ package com.shine.storage;
 
 import com.spring4all.swagger.EnableSwagger2Doc;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -13,6 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class StorageApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(StorageApplication.class, args);
+        SpringApplication application = new SpringApplication(StorageApplication.class);
+        application.setBannerMode(Banner.Mode.OFF);
+        application.run(args);
     }
 }

@@ -46,18 +46,22 @@ spring:
         enabled: true
         url-pattern: /api/*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
-
       stat-view-servlet:
         enabled: true
-        allow: 127.0.0.1
+#        allow: 127.0.0.1,192.168.16.151
         login-username: shine
         login-password: shining
         reset-enable: 'false'
+
   thymeleaf:
     cache: false
     mode: HTML
 #    prefix: classpath:/webapp/templates
-    suffix: .html
+#    suffix: .html
+
+  devtools:
+    restart:
+      enabled: true
 #      filter:
 #        stat:
 #          log-slow-sql: true

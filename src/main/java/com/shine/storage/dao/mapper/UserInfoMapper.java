@@ -5,6 +5,7 @@ import com.shine.storage.dao.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.mapstruct.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
@@ -15,8 +16,12 @@ import java.util.Optional;
  * @date: 2018年10月14日 20:16
  */
 @Mapper
+@Repository
 public interface UserInfoMapper {
 
     @Select("select id,account,name,password,salt,state from user where account=#{account} and password=#{pwd}")
-    Optional<User> getUserInfoByAccountAndPwd(@Param("account") String account, @Param("pwd") String pwd);
+    User getUserInfoByAccountAndPwd(@Param("account") String account, @Param("pwd") String pwd);
+
+    @Select("select * from user where account=#{account}")
+    User findUserByAccount(@Param("account") String account);
 }
