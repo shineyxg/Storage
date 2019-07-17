@@ -1,7 +1,7 @@
 package com.shine.storage.rest.web;
 
+import com.shine.storage.dao.dto.UserInfoDTO;
 import com.shine.storage.dao.entity.Person;
-import com.shine.storage.dao.entity.User;
 import com.shine.storage.dao.enums.GenderEnum;
 import com.shine.storage.dao.mapper.UserInfoMapper;
 import com.shine.storage.rest.service.PersonService;
@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -45,5 +46,10 @@ public class PersonController {
     @GetMapping("/getAllPerson")
     public List<Person> selectAllPerson() {
         return personService.getAllPerson();
+    }
+
+    @GetMapping("/getUserInfo")
+    public UserInfoDTO getUserInfo(@RequestParam String account){
+        return userInfoMapper.findUserInfoByAccount(account);
     }
 }

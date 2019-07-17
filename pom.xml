@@ -31,6 +31,8 @@
         <nekohtml.version>1.9.22</nekohtml.version>
         <mybatis.version>1.3.2</mybatis.version>
         <lombok.version>1.18.2</lombok.version>
+        <jwt.version>3.4.0</jwt.version>
+        <shiro-redis.version>3.2.2</shiro-redis.version>
     </properties>
 
     <dependencies>
@@ -76,11 +78,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -92,22 +94,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>
-            <groupId>com.battcn</groupId>
-            <artifactId>swagger-spring-boot-starter</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>-->
+
         <dependency>
             <groupId>com.spring4all</groupId>
             <artifactId>swagger-spring-boot-starter</artifactId>
             <version>${swagger.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
-        <!--<dependency>-->
-            <!--<groupId>com.alibaba</groupId>-->
-            <!--<artifactId>druid</artifactId>-->
-            <!--<version>${druid.version}</version>-->
-        <!--</dependency>-->
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
@@ -117,6 +110,16 @@
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
+            <version>${apache.shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+            <version>${apache.shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
             <version>${apache.shiro.version}</version>
         </dependency>
         <dependency>
@@ -135,6 +138,19 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.crazycake/shiro-redis -->
+        <!--<dependency>
+            <groupId>org.crazycake</groupId>
+            <artifactId>shiro-redis</artifactId>
+            <version>${shiro-redis.version}</version>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-ehcache -->
 
     </dependencies>
 

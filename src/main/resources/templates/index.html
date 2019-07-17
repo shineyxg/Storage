@@ -21,7 +21,10 @@
 </style>
 <body>
 <h2 class="text-center">仓管系统首页</h2>
-<button id="logout" class="btn btn-primary btn-block btn-lg">退出登录</button>
+<form action="/logout" method="get">
+    <button id="logout" class="btn btn-primary btn-block btn-lg" type="submit">退出登录</button>
+</form>
+
 <!--@{} 引用web静态资源，-->
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 <script th:src="@{jquery-3.3.1.min.js}" type="text/javascript"/>

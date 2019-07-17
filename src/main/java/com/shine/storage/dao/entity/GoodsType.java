@@ -10,7 +10,7 @@ import lombok.Data;
  * @date: 2018年11月30日 15:21
  */
 @Data
-public class GoodType {
+public class GoodsType {
 
 
     private Integer id;

@@ -1,5 +1,6 @@
 package com.shine.storage.dao.dto;
 
+import com.shine.storage.dao.enums.UserStateEnum;
 import lombok.Data;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class UserInfoDTO {
 
     private String salt;//加密密码的盐
 
-    private byte state;//用户状态
+    private UserStateEnum state;//用户状态
 
     private List<SysRoleDTO> roleList;// 一个用户具有多个角色
 
@@ -72,4 +73,8 @@ public class UserInfoDTO {
     // public void setRoleList(List<SysRoleDTO> roleList) {
     //     this.roleList = roleList;
     // }
+    /*获取密码盐*/
+    public String getCredentialSalt() {
+        return this.account + this.salt;
+    }
 }

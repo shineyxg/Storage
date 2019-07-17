@@ -20,4 +20,7 @@ public interface RoleMapper {
     @Select("select id,role,description,available from sys_role sr left join user_role ur on sr.id=ur.role_id WHERE ur.user_id=#{userId} AND sr.available=1")
     // @Results({})
     List<SysRole> findRolesByUserId(@Param("userId") Integer userId);
+
+    @Select("select * from sys_role where id=#{id}")
+    SysRole findRoleById(Integer id);
 }

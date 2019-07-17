@@ -16,6 +16,7 @@ public class StorageApplication {
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(StorageApplication.class);
         application.setBannerMode(Banner.Mode.OFF);
+        // application.setAdditionalProfiles("prod");
         application.run(args);
     }
 }

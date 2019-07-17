@@ -1,101 +1,102 @@
-
-spring:
-#  profiles:
-#    active: @profileActive@
-  datasource:
-#    驱动配置信息
-#    url: jdbc:mysql://${HOST_IP}:${DB_PORT}/storage?useUnicode=true&characterEncoding=utf8&useSSL=false
-#    username: root
-#    password: 123456
-#    driver-class-name: com.mysql.jdbc.Driver
-    druid:
-#     jdbc配置
-      url: jdbc:mysql://${HOST_IP}:${DB_PORT}/storage?useUnicode=true&characterEncoding=utf8&useSSL=false
-      username: root
-      password: 123456
-      driver-class-name: com.mysql.jdbc.Driver
-#      db-type: com.alibaba.druid.pool.DruidDataSource
-
-      #     连接池配置
-      # 设置初始化链接数、最小连接池数、获取连接最大等待时间（毫秒）、最大连接池数量
-      initial-size: 5
-      min-idle: 5
-      max-wait: 60000
-      max-active: 20
-      # 是否缓存preparedStatement  PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql下建议关闭
-      pool-prepared-statements: false
-      max-pool-prepared-statement-per-connection-size: -1
-      # 检测连接是否有效的sql语句、时间间隔、
-      validation-query: SELECT 1 FROM DUAL
-      validation-query-timeout: 30000
-      time-between-eviction-runs-millis: 60000
-      # 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
-      test-while-idle: true
-      # 申请连接时执行validationQuery检测连接是否有效
-      test-on-borrow: false
-      # 归还连接时执行validationQuery检测连接是否有效
-      test-on-return: false
-      max-evictable-idle-time-millis: 6000000
-      # Destory线程中如果检测到当前连接的最后活跃时间和当前时间的差值大于minEvictableIdleTimeMillis，则关闭当前连接
-      min-evictable-idle-time-millis: 300000
-      # 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat日志用的filter:log4j防御sql注入的filter:wall
-      filters: stat,wall
-
-#     监控配置
-      web-stat-filter:
-        enabled: true
-        url-pattern: /api/*
-        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
-      stat-view-servlet:
-        enabled: true
-#        allow: 127.0.0.1,192.168.16.151
-        login-username: shine
-        login-password: shining
-        reset-enable: 'false'
-
-  thymeleaf:
-    cache: false
-    mode: HTML
-#    prefix: classpath:/webapp/templates
-#    suffix: .html
-
-  devtools:
-    restart:
-      enabled: true
-#      filter:
-#        stat:
-#          log-slow-sql: true
-#          slow-sql-millis: 2000
-
-server:
-  port: 8088
-swagger:
-  enabled: true
-  title: "（暂定为）仓管系统"
-  description: 'shine的仓管系统接口文档'
-  version: 0.1.RELEASE
-  contact:
-    name: shine
-    email: 843272631@qq.com
-  base-package: com.shine.storage.rest.web
-  base-path: /api/**
-
-  ui-config:
-    request-timeout: 10000
-
-#---
-#spring:
-#  profiles: dev
-#  datasource:
-#    url: jdbc:mysql://${HOST_IP}:${DB_PORT}/storage?useUnicode=true&characterEncoding=utf8&useSSL=false
-#    username: root
-#    password: 123456
 #
-#
-#---
 #spring:
-#  profiles: prod
+##  profiles:
+##    active: @profileActive@
 #  datasource:
-#    url: jdbc:mysql://${HOST_IP}:${DB_PORT}/storage?useUnicode=true&characterEncoding=utf8&useSSL=false
-#    username: root
-#    password: shining
+##    驱动配置信息
+##    url: jdbc:mysql://${HOST_IP}:${DB_PORT}/storage?useUnicode=true&characterEncoding=utf8&useSSL=false
+##    username: root
+##    password: 123456
+##    driver-class-name: com.mysql.jdbc.Driver
+#    druid:
+##     jdbc配置
+#      url: jdbc:mysql://${HOST_IP}:${DB_PORT}/storage?useUnicode=true&characterEncoding=utf8&useSSL=false
+#      username: root
+#      password: 123456
+#      driver-class-name: com.mysql.jdbc.Driver
+##      db-type: com.alibaba.druid.pool.DruidDataSource
+#
+#      #     连接池配置
+#      # 设置初始化链接数、最小连接池数、获取连接最大等待时间（毫秒）、最大连接池数量
+#      initial-size: 5
+#      min-idle: 5
+#      max-wait: 60000
+#      max-active: 20
+#      # 是否缓存preparedStatement  PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql下建议关闭
+#      pool-prepared-statements: false
+#      max-pool-prepared-statement-per-connection-size: -1
+#      # 检测连接是否有效的sql语句、时间间隔、
+#      validation-query: SELECT 1 FROM DUAL
+#      validation-query-timeout: 30000
+#      time-between-eviction-runs-millis: 60000
+#      # 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+#      test-while-idle: true
+#      # 申请连接时执行validationQuery检测连接是否有效
+#      test-on-borrow: false
+#      # 归还连接时执行validationQuery检测连接是否有效
+#      test-on-return: false
+#      max-evictable-idle-time-millis: 6000000
+#      # Destory线程中如果检测到当前连接的最后活跃时间和当前时间的差值大于minEvictableIdleTimeMillis，则关闭当前连接
+#      min-evictable-idle-time-millis: 300000
+#      # 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat日志用的filter:log4j防御sql注入的filter:wall
+#      filters: stat,wall
+#
+##     监控配置
+#      web-stat-filter:
+#        enabled: true
+#        url-pattern: /api/*
+#        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+#      stat-view-servlet:
+#        enabled: true
+##        allow: 127.0.0.1,192.168.16.151
+#        login-username: shine
+#        login-password: shining
+#        reset-enable: 'false'
+#
+#  thymeleaf:
+#    cache: false
+#    mode: HTML
+##    prefix: classpath:/webapp/templates
+##    suffix: .html
+#
+#  devtools:
+#    restart:
+#      enabled: true
+#      exclude: static/**, templates/**, config/**
+##      filter:
+##        stat:
+##          log-slow-sql: true
+##          slow-sql-millis: 2000
+#
+#server:
+#  port: 8088
+#swagger:
+#  enabled: true
+#  title: "（暂定为）仓管系统"
+#  description: 'shine的仓管系统接口文档'
+#  version: 0.1.RELEASE
+#  contact:
+#    name: shine
+#    email: 843272631@qq.com
+#  base-package: com.shine.storage.rest.web
+#  base-path: /**
+#
+#  ui-config:
+#    request-timeout: 10000
+#
+##---
+##spring:
+##  profiles: dev
+##  datasource:
+##    url: jdbc:mysql://${HOST_IP}:${DB_PORT}/storage?useUnicode=true&characterEncoding=utf8&useSSL=false
+##    username: root
+##    password: 123456
+##
+##
+##---
+##spring:
+##  profiles: prod
+##  datasource:
+##    url: jdbc:mysql://${HOST_IP}:${DB_PORT}/storage?useUnicode=true&characterEncoding=utf8&useSSL=false
+##    username: root
+##    password: shining
